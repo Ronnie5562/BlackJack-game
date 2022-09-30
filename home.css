@@ -2,7 +2,7 @@ body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
     line-height: 1.5;
-    background-color: rgb(2, 73, 2);
+    background-image: url(bg.jpg);
     
 }
 
@@ -25,9 +25,19 @@ button {
     font-size: 35px;
     border-color: #fff;
     border-radius: 10px;
+    margin-top: 50px;
+}
+form{
     margin-top: 300px;
+
 }
 a{
     text-decoration: none;
     color: darkgreen;
+}
+input{
+    width: 30%;
+    padding: 10px 10px;
+    border-radius: 20px;
+    font-size: 20px;
 }

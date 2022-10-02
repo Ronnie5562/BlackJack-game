@@ -3,7 +3,7 @@ body{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
     line-height: 1.5;
-    background-image: url(download.jpg);
+    background-image: url('download.jpg');
 }
 h1{
     color: goldenrod;
@@ -17,6 +17,7 @@ p{
 }
 #message-el{
     font-style: italic;
+    
 }
 button{
     background-color: goldenrod;
@@ -49,4 +50,5 @@ button{
     padding-left: 10px;
     padding-right: 10px;
     box-sizing: border-box;
-}
+} 
+

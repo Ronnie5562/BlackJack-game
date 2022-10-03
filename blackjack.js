@@ -2,6 +2,7 @@ function enterGame(){
     const nameInputEl = document.getElementById('nameInput-el')
     const playerName = nameInputEl.value
     alert('Welcome back ' + playerName)
+    document.embeds()
 }
 
 let player = {

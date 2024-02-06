@@ -12,12 +12,15 @@
         <h1>BLACKJACK</h1>
         <p id="message-el">Want to play a round?</p>
         <p id="cards-el">Cards:</p>
-        <div id="cardsContainer-el"><img id="defImg-el" src="CARDS/images-removebg-preview-removebg-preview.png"> </div>
+        <div id="cardsContainer-el"><img id="defImg-el" src="CARDS/default.png"> </div>
         <p id="sum-el">Sum: 0</p>
-        <button onclick="startGame()">START GAME</button>
+            <button class="start-btn" onclick="startGame()">START ROUND</button>
         </span>
         <span>
-        <button onclick="newCard()">NEW CARD</button>
+            <button class="newcard-btn" onclick="newCard()">NEW CARD</button>
+        </span>
+        <span>
+            <button class="restart-btn hide" onclick="cleanUp()">PLAY A ROUND</button>
         </span>
         <p id="player-el"></p>
     </div>

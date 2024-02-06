@@ -1,3 +1,4 @@
+
 function enterGame(){
     const nameInputEl = document.getElementById('nameInput-el')
     const playerName = nameInputEl.value
@@ -15,6 +16,9 @@ let startedGame = false
 let hasBlackJack = false
 let isAlive = false
 let cardsContainerEl = document.getElementById('cardsContainer-el')
+let StartBtn = document.querySelector('.start-btn')
+let NewCardBtn = document.querySelector('.newcard-btn')
+let RestartBtn = document.querySelector('.restart-btn')
 let cardsEl = document.getElementById('cards-el')
 let sumEl = document.getElementById('sum-el')
 let messageEl = document.getElementById('message-el')
@@ -40,23 +44,27 @@ let newCards = [
 ]
 let NrandomC = ''
 function startGame() {
-    defImgEl.style.display = 'none'
+    defImgEl.classList.add('hide')
     if (startedGame === false) {
         isAlive = true
+        cardsContainerEl.innerHTML = []
+        
         let firstCard = getRandomCard()
         let secondCard = getRandomCard()
         sum = CardsNumber[0] + CardsNumber[1] + 2
-         Cards =[firstCard,secondCard]
+        Cards =[firstCard,secondCard]
         renderGame()
     }
     startedGame = true
 }
+
 function getRandomCard() {
     ActualRC = Math.floor(Math.random() * 13)
     CardsNumber.push(ActualRC)
     NrandomC = newCards[ActualRC]
     cardsContainerEl.innerHTML += NrandomC
 }
+
 function renderGame() {
     if (sum < 21) {
         message = "Do you want to draw another card?"
@@ -65,10 +73,16 @@ function renderGame() {
         message = "Wohoo! you've got a black jack!"
         hasBlackJack = true
         document.querySelector("body").style.backgroundImage = `URL("Win bg.jpg")`
+        RestartBtn.classList.remove('hide')
+        NewCardBtn.classList.add('hide')
+        StartBtn.classList.add('hide')
     } else {
         message = "you're out of the game!"
         isAlive = false
         document.getElementById("cool").style.background = "black"
+        RestartBtn.classList.remove('hide')
+        NewCardBtn.classList.add('hide')
+        StartBtn.classList.add('hide')
     }
     messageEl.textContent = message
     // for (let i = 0; i < Cards.length; i++){
@@ -80,6 +94,7 @@ function renderGame() {
         let reduction = player.chips / 2
         let playerMoney = player.name + ':$' + reduction
         playerEl.textContent = playerMoney
+        RestartBtn.classList.remove('hide')
     }else if (hasBlackJack === true){
         let reduction = player.chips * 10
         let playerMoney = player.name + ':$' + reduction
@@ -94,4 +109,22 @@ function newCard() {
         sum += ActualRC + 1
         renderGame()
     }
+}
+
+function cleanUp() {
+    RestartBtn.classList.add('hide')
+    NewCardBtn.classList.remove('hide')
+    StartBtn.classList.remove('hide')
+    cardsContainerEl.innerHTML = `<img id="defImg-el" src="CARDS/default.png">`
+    sumEl.textContent = 'Sum: 0'
+    messageEl.textContent = 'Do you want to play a round?'
+    Cards = []
+    CardsNumber = []
+    sum = 0
+    hasBlackJack = false
+    isAlive = false
+    startedGame = false
+    document.querySelector("body").style.backgroundImage = `URL("download.jpg")`
+    defImgEl.classList.remove('hide')
+
 }

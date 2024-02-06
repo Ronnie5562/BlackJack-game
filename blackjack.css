@@ -5,6 +5,7 @@ body{
     line-height: 1.5;
     background-image: url('download.jpg');
 }
+
 h1{
     color: goldenrod;
     font-size: 50px;
@@ -15,6 +16,7 @@ p{
     color: #fff;
     font-weight: 900;
 }
+
 #message-el{
     font-style: italic;
     
@@ -52,3 +54,6 @@ button{
     box-sizing: border-box;
 } 
 
+.hide {
+    display: none;
+}
